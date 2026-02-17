@@ -1,0 +1,1168 @@
+/* ============================================================================
+   CRYPTOGUARD - PROFESSIONAL CRYPTO × APPLE DESIGN
+   Inspired by: Binance, Coinbase, Kraken, Apple
+   ============================================================================ */
+
+/* ============================================================================
+   DESIGN SYSTEM - COLOR PALETTE
+   ============================================================================ */
+:root {
+  /* Primary Brand Colors - Crypto Purple/Blue gradient */
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --primary-dark: #4f46e5;
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* Crypto Exchange Colors */
+  --crypto-gold: #f0b90b;
+  --crypto-blue: #0052ff;
+  --crypto-purple: #5741d9;
+
+  /* Success & Risk Colors */
+  --success: #10b981;
+  --success-light: #34d399;
+  --warning: #f59e0b;
+  --warning-light: #fbbf24;
+  --danger: #ef4444;
+  --danger-light: #f87171;
+
+  /* Dark Theme (Crypto Standard) */
+  --bg-primary: #0a0e27;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+  --bg-card: rgba(31, 41, 55, 0.5);
+
+  /* Glass Effect */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Text Colors */
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+
+  /* Borders & Dividers */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --divider: rgba(255, 255, 255, 0.05);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.4);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Courier New', monospace;
+}
+
+/* ============================================================================
+   RESET & BASE STYLES
+   ============================================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Background Pattern (like Coinbase) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ============================================================================
+   HEADER - Apple Style with Crypto Touch
+   ============================================================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 14, 39, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--spacing-sm) 0;
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  font-size: 28px;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
+}
+
+.logo-text {
+  background: linear-gradient(135deg, var(--primary-light), var(--crypto-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav a:not(.btn-primary):hover {
+  color: var(--text-primary);
+}
+
+.nav a:not(.btn-primary)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  transition: width 0.3s ease;
+}
+
+.nav a:not(.btn-primary):hover::after {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.btn-primary::after {
+  display: none;
+}
+
+/* ============================================================================
+   HERO SECTION - Apple Minimalism + Crypto Bold
+   ============================================================================ */
+.hero {
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+  position: relative;
+}
+
+.hero .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.hero-title {
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -2px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--crypto-purple) 50%, var(--crypto-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 3vw, 20px);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ============================================================================
+   ANALYZER WIDGET - Crypto Exchange Style
+   ============================================================================ */
+.analyzer-widget {
+  max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: var(--spacing-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  box-shadow: var(--shadow-xl);
+}
+
+.wallet-input {
+  flex: 1;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-family: var(--font-mono);
+  transition: all 0.3s ease;
+}
+
+.wallet-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.wallet-input::placeholder {
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
+
+.analyze-btn {
+  padding: 18px 40px;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+.analyze-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+.analyze-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+}
+
+/* Supported Chains - Binance Style */
+.supported-chains {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-lg);
+}
+
+.chains-label {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chain-badge {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.chain-badge:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary);
+  color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* ============================================================================
+   ALERTS - Clean & Minimal
+   ============================================================================ */
+.alert {
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-error {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--danger);
+  color: var(--danger-light);
+}
+
+/* ============================================================================
+   RESULT CARD - Premium Crypto Dashboard Style
+   ============================================================================ */
+.result-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-xl);
+  animation: fadeInUp 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-gradient);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--divider);
+}
+
+.chain-badge {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.address-display {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+/* Risk Score Circle - Apple Watch Style */
+.risk-display {
+  text-align: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.risk-score-circle {
+  width: 180px;
+  height: 180px;
+  border: 10px solid;
+  border-radius: 50%;
+  margin: 0 auto var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.risk-score-circle::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.2;
+  filter: blur(20px);
+}
+
+.risk-score-circle:hover {
+  transform: scale(1.05);
+}
+
+.risk-number {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.risk-max {
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.risk-label {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: var(--spacing-sm);
+}
+
+/* Stats Grid - Kraken Style */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+/* Risk Factors - Alert Style */
+.risk-factors {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.factors-title {
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--danger-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.factor-item {
+  color: var(--text-secondary);
+  margin: 8px 0;
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.factor-item::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--danger);
+  font-weight: bold;
+}
+
+/* ============================================================================
+   FEATURES SECTION - Apple Product Page Style
+   ============================================================================ */
+.features {
+  padding: var(--spacing-2xl) 0;
+  background: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  margin-bottom: var(--spacing-2xl);
+  letter-spacing: -1.5px;
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.feature-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.feature-card:hover::before {
+  left: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+.feature-icon {
+  font-size: 56px;
+  margin-bottom: var(--spacing-md);
+  filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.3));
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ============================================================================
+   PRICING SECTION - Apple Store Style
+   ============================================================================ */
+.pricing {
+  padding: var(--spacing-2xl) 0;
+}
+
+.pricing-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.pricing-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-card.featured {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.05);
+  box-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
+  transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.08) translateY(-8px);
+}
+
+.featured-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-gradient);
+  color: white;
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.5);
+}
+
+.pricing-card h3 {
+  font-size: 26px;
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+}
+
+.price {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -2px;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.price span {
+  font-size: 18px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: var(--spacing-lg);
+  text-align: left;
+}
+
+.features-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--divider);
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 24px;
+}
+
+.features-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: bold;
+}
+
+.pricing-btn {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pricing-btn:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+.pricing-btn.primary {
+  background: var(--primary-gradient);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+.pricing-btn.primary:hover {
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+/* ============================================================================
+   FOOTER - Clean & Minimal
+   ============================================================================ */
+.footer {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  border-top: 1px solid var(--divider);
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+  font-size: 14px;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .nav {
+    display: none; /* Add mobile menu later */
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* ============================================================================
+   UTILITY CLASSES
+   ============================================================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+}
+
+/* ============================================================================
+   PREMIUM ANALYZE BUTTON with SVG Icon
+   ============================================================================ */
+.analyze-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.analyze-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.analyze-btn:hover::before {
+  left: 100%;
+}
+
+.analyze-btn:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.7);
+}
+
+.analyze-btn:active:not(:disabled) {
+  transform: translateY(-1px) scale(1);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.analyze-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+  animation: pulse 2s infinite;
+}
+
+.analyze-btn:disabled .analyze-icon {
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================================================
+   FEATURES ROW - All in One Line
+   ============================================================================ */
+.features-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.feature-compact {
+  flex: 1;
+  min-width: 0;
+}
+
+.feature-compact-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.feature-compact-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.25);
+}
+
+.feature-compact-card .feature-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.feature-compact-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.feature-compact-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-sm);
+}
+
+.expand-indicator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin: var(--spacing-sm) auto 0;
+  transition: all 0.3s ease;
+}
+
+.feature-compact-card:hover .expand-indicator {
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.6);
+}
+
+/* ============================================================================
+   ACCORDION EXPANDED VIEW
+   ============================================================================ */
+.feature-expanded {
+  margin-top: var(--spacing-xl);
+  animation: expandDown 0.4s ease;
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
+  }
+}
+
+.feature-expanded-content {
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+  position: relative;
+}
+
+.feature-expanded-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.feature-expanded-icon {
+  font-size: 72px;
+  margin-bottom: var(--spacing-md);
+  filter: drop-shadow(0 4px 20px rgba(99, 102, 241, 0.4));
+}
+
+.feature-expanded-content h3 {
+  font-size: 32px;
+  margin-bottom: var(--spacing-md);
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.feature-expanded-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.close-expanded {
+  padding: 12px 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-expanded:hover {
+  background: var(--primary-gradient);
+  border-color: transparent;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.5);
+}
+
+/* ============================================================================
+   RESPONSIVE - Features Row
+   ============================================================================ */
+@media (max-width: 1024px) {
+  .features-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .features-row {
+    grid-template-columns: 1fr;
+  }
+
+  .analyze-btn {
+    padding: 16px 24px;
+    font-size: 15px;
+  }
+
+  .analyze-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ============================================================================
+   FOOTER - Enhanced with Legal Links
+   ============================================================================ */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+.footer-links span {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+@media (max-width: 640px) {
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

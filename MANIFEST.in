@@ -1,0 +1,27 @@
+# ============================================================================
+# MANIFEST.in - Zusätzliche Dateien für Package-Distribution
+# ============================================================================
+#
+# Was macht diese Datei?
+# - Definiert, welche Nicht-Python-Dateien ins Package aufgenommen werden
+# - Wichtig für pip install
+#
+# Verwendung:
+# - Wird automatisch von setup.py gelesen
+# ============================================================================
+
+# Include data files
+include data/*.json
+
+# Include documentation
+include README.md
+include LICENSE
+include .env.example
+
+# Include requirements
+include requirements.txt
+
+# Exclude unwanted files
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store

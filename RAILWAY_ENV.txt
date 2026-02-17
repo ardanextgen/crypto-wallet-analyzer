@@ -1,0 +1,34 @@
+# ============================================================================
+# RAILWAY ENVIRONMENT VARIABLES - Copy & Paste Ready
+# ============================================================================
+# Gehe zu: https://railway.app → Dein Projekt → Variables Tab
+# Paste diese Variablen (ersetze die Platzhalter mit deinen echten Keys)
+# ============================================================================
+
+# API Keys (WICHTIG - Ohne diese funktioniert die App nicht!)
+ETHERSCAN_API_KEY=5CJPIAQ2FFDJA22ARFHX5HHN1JVS7WK5BD
+ANTHROPIC_API_KEY=sk-ant-DEIN_KEY_HIER
+STRIPE_SECRET_KEY=sk_test_DEIN_KEY_HIER
+STRIPE_WEBHOOK_SECRET=whsec_DEIN_KEY_HIER
+
+# Claude Model
+CLAUDE_MODEL=claude-3-haiku-20240307
+
+# Server Config
+API_PORT=8000
+DEBUG=false
+MAX_TRANSACTIONS=100
+
+# Database URL
+# NICHT MANUELL SETZEN! Railway setzt das automatisch wenn du PostgreSQL hinzufügst
+# DATABASE_URL=postgresql://...  <- Wird automatisch gesetzt
+
+# CORS (erlaubt Frontend-Zugriff)
+ALLOWED_ORIGINS=https://crypto-wallet-analyzer.vercel.app,http://localhost:3001
+
+# Production Mode
+ENVIRONMENT=production
+
+# ============================================================================
+# WICHTIG: Nach dem Setzen der Variables → "Redeploy" klicken!
+# ============================================================================

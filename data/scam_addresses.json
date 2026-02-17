@@ -1,0 +1,197 @@
+{
+  "_comment": "==========================================================================",
+  "_description": "Bekannte Scam-Adressen, Mixer und verdächtige Contracts",
+  "_update_date": "2026-02-14",
+  "_sources": [
+    "https://etherscan.io/accounts/label/scam",
+    "https://github.com/MyCrypto/ethereum-lists/tree/master/src/addresses",
+    "Community-Reports"
+  ],
+  "_note": "Diese Liste ist nicht vollständig! Regelmäßig aktualisieren!",
+  "==========================================================================": "",
+
+  "scam_contracts": {
+    "_description": "Bekannte Scam-Smart-Contracts (Phishing, Rug-Pulls, etc.)",
+
+    "phishing_contracts": [
+      {
+        "address": "0x000000000000000000000000000000000000dEaD",
+        "name": "Burn Address (häufig für Scams genutzt)",
+        "type": "burn_address",
+        "description": "Häufig von Scammern genutzt um Tokens zu 'verbrennen'"
+      },
+      {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "WETH Contract",
+        "type": "legitimate",
+        "note": "Dies ist KEIN Scam - nur als Beispiel für Whitelisting"
+      }
+    ],
+
+    "rugpull_contracts": [
+      {
+        "address": "0x0000000000000000000000000000000000000000",
+        "name": "Null Address",
+        "type": "suspicious",
+        "description": "Transaktionen zu 0x0 sind oft verdächtig"
+      }
+    ],
+
+    "ponzi_schemes": [
+      {
+        "address": "0x1234567890123456789012345678901234567890",
+        "name": "Example Ponzi Contract",
+        "type": "ponzi",
+        "description": "Beispiel-Adresse (nicht real, nur für Demo)",
+        "risk_score": 100
+      }
+    ]
+  },
+
+  "mixer_addresses": {
+    "_description": "Privacy-Mixer (nicht illegal, aber erhöhtes Risiko)",
+
+    "tornado_cash": [
+      {
+        "address": "0x12D66f87A04A9E220743712cE6d9bB1B5616B8Fc",
+        "name": "Tornado Cash: 0.1 ETH",
+        "type": "mixer",
+        "amount": "0.1 ETH",
+        "risk_level": "medium",
+        "note": "Tornado Cash wurde 2022 von US-Behörden sanktioniert"
+      },
+      {
+        "address": "0x47CE0C6eD5B0Ce3d3A51fdb1C52DC66a7c3c2936",
+        "name": "Tornado Cash: 1 ETH",
+        "type": "mixer",
+        "amount": "1 ETH",
+        "risk_level": "medium"
+      },
+      {
+        "address": "0x910Cbd523D972eb0a6f4cAe4618aD62622b39DbF",
+        "name": "Tornado Cash: 10 ETH",
+        "type": "mixer",
+        "amount": "10 ETH",
+        "risk_level": "medium"
+      },
+      {
+        "address": "0xA160cdAB225685dA1d56aa342Ad8841c3b53f291",
+        "name": "Tornado Cash: 100 ETH",
+        "type": "mixer",
+        "amount": "100 ETH",
+        "risk_level": "high"
+      }
+    ],
+
+    "other_mixers": [
+      {
+        "address": "0xEXAMPLEMIXER1234567890123456789012345678",
+        "name": "Example Mixer",
+        "type": "mixer",
+        "risk_level": "medium",
+        "note": "Beispiel-Adresse (nicht real)"
+      }
+    ]
+  },
+
+  "suspicious_patterns": {
+    "_description": "Patterns die auf Scams hindeuten",
+
+    "burn_addresses": [
+      "0x0000000000000000000000000000000000000000",
+      "0x000000000000000000000000000000000000dEaD",
+      "0xdEAD000000000000000042069420694206942069"
+    ],
+
+    "known_phishing_addresses": [
+      {
+        "address": "0xEXAMPLEPHISHING123456789012345678901234567",
+        "name": "Example Phishing Address",
+        "reported_date": "2024-01-01",
+        "scam_type": "fake_airdrop",
+        "note": "Beispiel-Adresse"
+      }
+    ]
+  },
+
+  "whitelisted_contracts": {
+    "_description": "Bekannte legitime Contracts (kein Risiko)",
+
+    "dex_contracts": [
+      {
+        "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+        "name": "Uniswap V2 Router",
+        "type": "dex",
+        "risk_level": "none"
+      },
+      {
+        "address": "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+        "name": "Uniswap V3 Router",
+        "type": "dex",
+        "risk_level": "none"
+      }
+    ],
+
+    "stablecoins": [
+      {
+        "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "name": "Tether USD (USDT)",
+        "type": "stablecoin",
+        "risk_level": "none"
+      },
+      {
+        "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "name": "USD Coin (USDC)",
+        "type": "stablecoin",
+        "risk_level": "none"
+      },
+      {
+        "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "name": "Dai Stablecoin (DAI)",
+        "type": "stablecoin",
+        "risk_level": "none"
+      }
+    ],
+
+    "major_defi_protocols": [
+      {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "name": "Wrapped Ether (WETH)",
+        "type": "wrapped_token",
+        "risk_level": "none"
+      },
+      {
+        "address": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+        "name": "Aave Lending Pool V2",
+        "type": "lending",
+        "risk_level": "none"
+      }
+    ]
+  },
+
+  "risk_scoring_weights": {
+    "_description": "Gewichtung für verschiedene Address-Typen",
+
+    "scam_contract": 100,
+    "rugpull_contract": 100,
+    "ponzi_scheme": 100,
+    "tornado_cash_0.1eth": 40,
+    "tornado_cash_1eth": 50,
+    "tornado_cash_10eth": 70,
+    "tornado_cash_100eth": 90,
+    "other_mixer": 60,
+    "phishing_address": 100,
+    "burn_address": 30,
+    "whitelisted_contract": 0
+  },
+
+  "update_instructions": {
+    "_how_to_update": "So aktualisierst du diese Liste:",
+    "step_1": "Besuche https://etherscan.io/accounts/label/scam",
+    "step_2": "Kopiere neue Scam-Adressen",
+    "step_3": "Füge sie zur entsprechenden Kategorie hinzu",
+    "step_4": "Aktualisiere das '_update_date' Feld",
+    "step_5": "Optional: Nutze GitHub-Listen wie MyCrypto/ethereum-lists",
+    "automation": "TODO: Script erstellen für automatische Updates"
+  }
+}

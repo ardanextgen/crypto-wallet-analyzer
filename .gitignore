@@ -1,0 +1,97 @@
+# ============================================================================
+# .gitignore - Dateien, die NICHT in Git gespeichert werden sollen
+# ============================================================================
+
+# Umgebungsvariablen mit API-Keys
+# WICHTIG: .env enthält sensible Daten!
+.env
+.env.local
+.env.*.local
+
+# Python-spezifisch
+# -----------------
+# __pycache__: Python-Bytecode-Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C Extensions
+*.so
+
+# Distribution / Packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+# -------------------
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+# ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+# -------
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Logs
+# ----
+*.log
+
+# Jupyter Notebooks
+# -----------------
+.ipynb_checkpoints
+
+# Cache-Dateien unserer App
+# -------------------------
+cache/
+*.cache
+
+# Temporäre Dateien
+# ----------------
+tmp/
+temp/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.db
+.env*
+*.log
