@@ -20,5 +20,5 @@ COPY . .
 # Port exposieren (Railway setzt $PORT automatisch)
 EXPOSE 8000
 
-# Start-Kommando
-CMD uvicorn src.api.server:app --host 0.0.0.0 --port ${PORT:-8000}
+# Start-Kommando (Railway setzt $PORT automatisch)
+CMD ["sh", "-c", "uvicorn src.api.server:app --host 0.0.0.0 --port $PORT"]
