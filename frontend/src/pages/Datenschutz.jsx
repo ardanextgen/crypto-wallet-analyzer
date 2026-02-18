@@ -90,10 +90,10 @@ function Datenschutz() {
             Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
           </p>
           <p className="contact-info">
-            [Ihr Name/Firma]<br />
-            [Straße und Hausnummer]<br />
-            [PLZ und Ort]<br />
-            E-Mail: [Ihre E-Mail]
+            ⚠️ [DEIN NAME/FIRMA]<br />
+            [DEINE STRASSE UND HAUSNUMMER]<br />
+            [DEINE PLZ UND ORT]<br />
+            E-Mail: info@cryptoguard.io
           </p>
 
           <h3>Speicherdauer</h3>

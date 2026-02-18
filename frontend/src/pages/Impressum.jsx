@@ -9,9 +9,9 @@ function Impressum() {
         <section>
           <h2>Angaben gemäß § 5 TMG</h2>
           <p className="contact-info">
-            <strong>[Ihr Name / Firmenname]</strong><br />
-            [Straße und Hausnummer]<br />
-            [PLZ und Ort]<br />
+            <strong>⚠️ [DEIN NAME ODER FIRMENNAME HIER EINFÜGEN]</strong><br />
+            [DEINE STRASSE UND HAUSNUMMER]<br />
+            [DEINE PLZ UND ORT]<br />
             Deutschland
           </p>
         </section>
@@ -20,7 +20,7 @@ function Impressum() {
           <h2>Kontakt</h2>
           <p className="contact-info">
             <strong>E-Mail:</strong> info@cryptoguard.io<br />
-            <strong>Telefon:</strong> [Ihre Telefonnummer]<br />
+            <strong>Telefon:</strong> ⚠️ [DEINE TELEFONNUMMER]<br />
             <strong>Website:</strong> https://cryptoguard.io
           </p>
         </section>
@@ -29,7 +29,7 @@ function Impressum() {
           <h2>Umsatzsteuer-ID</h2>
           <p>
             Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-            <strong>DE [Ihre USt-IdNr.]</strong>
+            <strong>⚠️ DE [DEINE UST-IDNR. ODER LÖSCHE DIESEN ABSCHNITT ALS KLEINUNTERNEHMER]</strong>
           </p>
           <p className="note">
             Hinweis: Wenn Sie noch keine USt-ID haben, können Sie diese beim Bundeszentralamt für Steuern beantragen.
@@ -40,9 +40,9 @@ function Impressum() {
         <section>
           <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
           <p className="contact-info">
-            [Ihr vollständiger Name]<br />
-            [Straße und Hausnummer]<br />
-            [PLZ und Ort]
+            ⚠️ [DEIN VOLLSTÄNDIGER NAME]<br />
+            [DEINE STRASSE UND HAUSNUMMER]<br />
+            [DEINE PLZ UND ORT]
           </p>
         </section>
 
