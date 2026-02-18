@@ -730,11 +730,13 @@ if __name__ == "__main__":
     import uvicorn
 
     # Server starten
-    # In Production: uvicorn src.api.server:app --host 0.0.0.0 --port 8000
+    # Railway/Render verwenden die PORT Environment Variable
+    port = int(os.getenv("PORT", 8000))
+
     uvicorn.run(
         "src.api.server:app",
         host="0.0.0.0",
-        port=int(os.getenv("API_PORT", 8000)),
-        reload=True,  # Auto-reload bei Code-Änderungen
+        port=port,
+        reload=False,  # Production mode
         log_level="info"
     )
